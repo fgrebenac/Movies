@@ -118,6 +118,49 @@
             android:layout_marginEnd="8dp"
             />
 
+        <LinearLayout
+            android:id="@+id/noMoviesLayout"
+            android:layout_width="140dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/similarMoviesTextView"
+            android:visibility="gone"
+            android:layout_margin="16dp"
+            >
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                >
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_local_movies_24dp"
+                    android:layout_gravity="center"
+                    />
+
+                <ImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/ic_no_movies_24dp"
+                    />
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/there_are_no_similar_movies"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/similarMoviesRecyclerView"
             android:layout_below="@id/similarMoviesTextView"

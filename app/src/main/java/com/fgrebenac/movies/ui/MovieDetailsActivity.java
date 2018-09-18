@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +36,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private TextView releaseDateTextView;
     private TextView movieGenresTextView;
     private TextView movieOverviewTextView;
+    private LinearLayout noMoviesLayout;
     private Call<Movie> getMovieDetailsCall;
     private Call<MovieList> getSimilarMoviesCall;
     private String movieId;
@@ -60,6 +63,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         movieGenresTextView = findViewById(R.id.genresTextView);
         movieOverviewTextView = findViewById(R.id.movieOverviewTextView);
         similarMoviesRecyclerView = findViewById(R.id.similarMoviesRecyclerView);
+        noMoviesLayout = findViewById(R.id.noMoviesLayout);
     }
 
     private void getMovieDetailsFromApi() {
@@ -133,6 +137,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 }
             }, true);
             similarMoviesRecyclerView.setAdapter(moviesAdapter);
+        } else {
+            noMoviesLayout.setVisibility(View.VISIBLE);
         }
     }
 
