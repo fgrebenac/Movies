@@ -19,7 +19,7 @@ public class Movie {
     @Json(name = "release_date")
     private String releaseDate;
     @Json(name = "genres")
-    private List<Genre> genreIds;
+    private List<Genre> genres;
 
     public Movie() {
     }
@@ -72,11 +72,11 @@ public class Movie {
         this.releaseDate = releaseDate;
     }
 
-    public List<Genre> getGenreIds() {
-        return genreIds;
+    public List<Genre> getGenres() {
+        return genres;
     }
 
-    public void setGenreIds(List<Genre> genreIds) {
-        this.genreIds = genreIds;
+    public void setGenres(List<Genre> genres) {
+        this.genres = genres;
     }
 }

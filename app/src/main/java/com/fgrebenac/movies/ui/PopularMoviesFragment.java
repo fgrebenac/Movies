@@ -1,5 +1,7 @@
 package com.fgrebenac.movies.ui;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,6 +11,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.Toast;
 
 import com.fgrebenac.movies.R;
@@ -29,6 +33,7 @@ public class PopularMoviesFragment extends Fragment {
     private MoviesAdapter moviesAdapter;
     private Call<MovieList> getPopularMovieListCall;
     private List<Movie> movies = new ArrayList<>();
+    private ProgressDialog progressDialog;
 
     @Nullable
     @Override
@@ -66,20 +71,24 @@ public class PopularMoviesFragment extends Fragment {
     }
 
     private void displayMovies() {
+        LayoutAnimationController animationController = AnimationUtils.loadLayoutAnimation(getContext(), R.anim.anim_layout_fall_down);
+        popularMoviesRecyclerView.setLayoutAnimation(animationController);
         if(!movies.isEmpty()) {
             popularMoviesRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
             moviesAdapter = new MoviesAdapter(movies, new MoviesAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(Movie item) {
-                    startMovieDetailsFragment(item);
+                    startMovieDetailsActivity(item);
                 }
-            });
+            }, false);
             popularMoviesRecyclerView.setAdapter(moviesAdapter);
         }
     }
 
-    private void startMovieDetailsFragment(Movie item) {
-
+    private void startMovieDetailsActivity(Movie item) {
+        Intent intent = new Intent(getActivity(), MovieDetailsActivity.class);
+        intent.putExtra("movieId", String.valueOf(item.getId()));
+        startActivity(intent);
     }
 
 }

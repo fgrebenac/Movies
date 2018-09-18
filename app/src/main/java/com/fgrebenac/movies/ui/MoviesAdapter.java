@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.fgrebenac.movies.R;
 import com.fgrebenac.movies.data.models.Movie;
 
@@ -18,16 +19,19 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
     private List<Movie> movies;
     private OnItemClickListener itemClickListener;
+    private boolean isList;
 
-    public MoviesAdapter(List<Movie> movies, OnItemClickListener itemClickListener) {
+    public MoviesAdapter(List<Movie> movies, OnItemClickListener itemClickListener, boolean isList) {
         this.movies = movies;
         this.itemClickListener = itemClickListener;
+        this.isList = isList;
     }
 
     @NonNull
     @Override
     public MoviesAdapter.MovieViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_movie, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(
+                !isList ? R.layout.item_movie : R.layout.item_list_movie, viewGroup, false);
         return new MovieViewHolder(view);
     }
 

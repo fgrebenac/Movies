@@ -16,9 +16,9 @@ public interface ApiService {
     @GET("movie/popular?api_key=fe3b8cf16d78a0e23f0c509d8c37caad")
     Call<MovieList> getPopularMovieList();
 
-    @GET("movie/{movieId}")
-    Call<Movie> getMovieDetails(@Header("Authentication") String apiKey, @Path("movieId") String movieId);
+    @GET("movie/{movieId}?api_key=fe3b8cf16d78a0e23f0c509d8c37caad")
+    Call<Movie> getMovieDetails(@Path("movieId") String movieId);
 
-    @GET("movie/{movieId}/similar")
-    Call<MovieList> getSimilarMovies(@Header("Authentication") String apiKey, @Path("movieId") String movieId);
+    @GET("movie/{movieId}/similar?api_key=fe3b8cf16d78a0e23f0c509d8c37caad")
+    Call<MovieList> getSimilarMovies(@Path("movieId") String movieId);
 }
