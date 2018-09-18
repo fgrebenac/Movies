@@ -147,4 +147,15 @@ public class MovieDetailsActivity extends AppCompatActivity {
         super.onBackPressed();
         overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_right);
     }
+
+    @Override
+    public void onStop() {
+        try {
+            if(!getSimilarMoviesCall.isExecuted()) getSimilarMoviesCall.cancel();
+            if(!getMovieDetailsCall.isExecuted()) getMovieDetailsCall.cancel();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        super.onStop();
+    }
 }

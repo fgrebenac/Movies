@@ -91,4 +91,14 @@ public class TopRatedMoviesFragment extends Fragment {
         intent.putExtra("movieId", String.valueOf(item.getId()));
         startActivity(intent);
     }
+
+    @Override
+    public void onStop() {
+        try {
+            if(!getTopRatedMovieListCall.isExecuted()) getTopRatedMovieListCall.cancel();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        super.onStop();
+    }
 }

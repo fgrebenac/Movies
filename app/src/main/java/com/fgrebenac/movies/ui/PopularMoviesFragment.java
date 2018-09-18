@@ -91,4 +91,14 @@ public class PopularMoviesFragment extends Fragment {
         startActivity(intent);
     }
 
+    @Override
+    public void onStop() {
+        try {
+            if(!getPopularMovieListCall.isExecuted()) getPopularMovieListCall.cancel();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+        super.onStop();
+    }
+
 }
