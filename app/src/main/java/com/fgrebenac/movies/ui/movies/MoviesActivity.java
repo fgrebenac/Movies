@@ -1,4 +1,4 @@
-package com.fgrebenac.movies.ui;
+package com.fgrebenac.movies.ui.movies;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

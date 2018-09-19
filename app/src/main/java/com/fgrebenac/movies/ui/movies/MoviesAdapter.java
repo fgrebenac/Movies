@@ -1,4 +1,4 @@
-package com.fgrebenac.movies.ui;
+package com.fgrebenac.movies.ui.movies;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.fgrebenac.movies.R;
 import com.fgrebenac.movies.data.models.Movie;
 

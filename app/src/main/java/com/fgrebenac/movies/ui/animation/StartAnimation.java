@@ -1,4 +1,4 @@
-package com.fgrebenac.movies.ui;
+package com.fgrebenac.movies.ui.animation;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.fgrebenac.movies.R;
+import com.fgrebenac.movies.ui.movies.MoviesActivity;
 
 public class StartAnimation extends AppCompatActivity {
 

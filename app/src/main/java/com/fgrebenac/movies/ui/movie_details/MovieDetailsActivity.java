@@ -1,4 +1,4 @@
-package com.fgrebenac.movies.ui;
+package com.fgrebenac.movies.ui.movie_details;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.AnimationUtils;
+import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,6 +22,8 @@ import com.fgrebenac.movies.data.api.ApiServiceFactory;
 import com.fgrebenac.movies.data.models.Genre;
 import com.fgrebenac.movies.data.models.Movie;
 import com.fgrebenac.movies.data.models.MovieList;
+import com.fgrebenac.movies.utils.BaseActivity;
+import com.fgrebenac.movies.ui.movies.MoviesAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -128,6 +132,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
     }
 
     private void displayMovies() {
+        LayoutAnimationController layoutAnimationController = AnimationUtils.loadLayoutAnimation(MovieDetailsActivity.this,
+                R.anim.anim_layout_list);
+        similarMoviesRecyclerView.setLayoutAnimation(layoutAnimationController);
         if(!movies.isEmpty()) {
             similarMoviesRecyclerView.setLayoutManager(new LinearLayoutManager(MovieDetailsActivity.this));
             moviesAdapter = new MoviesAdapter(movies, new MoviesAdapter.OnItemClickListener() {

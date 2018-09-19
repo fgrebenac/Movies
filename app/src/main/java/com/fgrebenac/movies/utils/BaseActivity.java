@@ -1,4 +1,4 @@
-package com.fgrebenac.movies.ui;
+package com.fgrebenac.movies.utils;
 
 import android.app.ProgressDialog;
 import android.content.Context;
