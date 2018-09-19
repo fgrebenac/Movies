@@ -4,10 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.fgrebenac.movies.ui.GridRecyclerView
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeRefreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <com.fgrebenac.movies.ui.movies.GridRecyclerView
         android:id="@+id/listRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+
+    </android.support.v4.widget.SwipeRefreshLayout>
 
 </LinearLayout>
