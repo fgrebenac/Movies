@@ -19,8 +19,6 @@ public class StartAnimation extends AppCompatActivity {
 
     private ImageView logoImageView;
     private TextView moviesTextView;
-    private ObjectAnimator animY;
-    private ObjectAnimator scaleAlpha;
     private AnimatorSet animatorSet = new AnimatorSet();
     private boolean animationFlag = false;
 
@@ -39,11 +37,11 @@ public class StartAnimation extends AppCompatActivity {
     }
 
     private void playAnimations() {
-        animY = ObjectAnimator.ofFloat(logoImageView, "translationY", -2000, 0f);
+        ObjectAnimator animY = ObjectAnimator.ofFloat(logoImageView, "translationY", -2000, 0f);
         animY.setDuration(1000);
         animY.setInterpolator(new BounceInterpolator());
 
-        scaleAlpha = ObjectAnimator.ofFloat(moviesTextView, "alpha", 0f, 1f);
+        ObjectAnimator scaleAlpha = ObjectAnimator.ofFloat(moviesTextView, "alpha", 0f, 1f);
         scaleAlpha.setDuration(1000);
 
         animatorSet.playTogether(animY, scaleAlpha);

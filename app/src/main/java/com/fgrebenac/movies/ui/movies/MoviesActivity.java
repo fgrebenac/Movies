@@ -19,8 +19,6 @@ public class MoviesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.anim_slide_in_up, R.anim.anim_slide_out_up);
         setContentView(R.layout.activity_movies);
-
-
         viewPager = findViewById(R.id.viewPager);
         viewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
     }

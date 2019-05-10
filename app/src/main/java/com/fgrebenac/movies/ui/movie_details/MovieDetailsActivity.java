@@ -45,7 +45,6 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private Call<MovieList> getSimilarMoviesCall;
     private String movieId;
     private RecyclerView similarMoviesRecyclerView;
-    private MoviesAdapter moviesAdapter;
     private List<Movie> movies = new ArrayList<>();
 
     @Override
@@ -137,7 +136,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         similarMoviesRecyclerView.setLayoutAnimation(layoutAnimationController);
         if(!movies.isEmpty()) {
             similarMoviesRecyclerView.setLayoutManager(new LinearLayoutManager(MovieDetailsActivity.this));
-            moviesAdapter = new MoviesAdapter(movies, new MoviesAdapter.OnItemClickListener() {
+            MoviesAdapter moviesAdapter = new MoviesAdapter(movies, new MoviesAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(Movie item) {
                     startMovieDetailsActivity(item);

@@ -32,7 +32,6 @@ import retrofit2.Response;
 public class PopularMoviesFragment extends Fragment {
 
     private RecyclerView popularMoviesRecyclerView;
-    private MoviesAdapter moviesAdapter;
     private Call<MovieList> getPopularMovieListCall;
     private List<Movie> movies = new ArrayList<>();
     private SwipeRefreshLayout swipeRefreshLayout;
@@ -96,7 +95,7 @@ public class PopularMoviesFragment extends Fragment {
         popularMoviesRecyclerView.setLayoutAnimation(animationController);
         if(!movies.isEmpty()) {
             popularMoviesRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-            moviesAdapter = new MoviesAdapter(movies, new MoviesAdapter.OnItemClickListener() {
+            MoviesAdapter moviesAdapter = new MoviesAdapter(movies, new MoviesAdapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(Movie item) {
                     startMovieDetailsActivity(item);
